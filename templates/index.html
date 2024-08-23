@@ -15,7 +15,8 @@
         <h1> There is list of apps : </h1>
         {% for prod in prods %}
             <li style="font-size: 1.5rem;">{{prod.name}}</li>
-            <img src="{{prod.image.url}}" alt="">
+            <img src="{{ MEDIA_URL }}{{ prod.image.url }}" alt="Image">
+
         {% endfor %}
     </ul>
         
