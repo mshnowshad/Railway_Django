@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test app</title>
+</head>
+<body>
+    <h1 style="font-size: 7rem;">Welcome to vercel test app.</h1>
+    <p style="margin-left: 2rem;font-size: 2rem;"><a href="{% url 'admin:index' %}" target="_blank">button</a></p>
+
+
+    <ul>
+
+        <h1> There is list of apps : </h1>
+        {% for prod in prods %}
+            <li style="font-size: 1.5rem;">{{prod.name}}</li>
+        {% endfor %}
+    </ul>
+        
+               
+       
+  
+        
+</body>
+</html>
