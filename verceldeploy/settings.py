@@ -11,7 +11,7 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-CSRF_TRUSTED_ORIGINS= ['testapp-production-673f.up.railway.app']
+CSRF_TRUSTED_ORIGINS= ['https://web-production-dda7.up.railway.app/']
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
