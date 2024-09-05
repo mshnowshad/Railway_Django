@@ -167,8 +167,12 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
+CSRF_TRUSTED_ORIGINS= ['web-production-dda7.up.railway.app','127.0.0.1']
+
+
 
 CORS_ALLOWED_ORIGINS = [
     'web-production-dda7.up.railway.app',
+    '127.0.0.1'
     # Add other allowed origins if necessary
 ]
