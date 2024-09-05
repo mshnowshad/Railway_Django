@@ -169,6 +169,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 
 CORS_ALLOWED_ORIGINS = [
-    'https://web-production-dda7.up.railway.app',
+    'web-production-dda7.up.railway.app',
     # Add other allowed origins if necessary
 ]
