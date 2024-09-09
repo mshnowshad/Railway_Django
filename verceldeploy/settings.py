@@ -1,17 +1,8 @@
-
-
 from pathlib import Path
 import os
 
-
-
-
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -20,14 +11,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-bsa_^8f+=k(ff#8_#a04petd-1abj1g3brkzo-f67^nd+m&lvk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['web-production-dda7.up.railway.app', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['web-production-dda7.up.railway.app', '127.0.0.1']
 
+CSRF_TRUSTED_ORIGINS = ['https://web-production-dda7.up.railway.app']
 
+CSRF_COOKIE_SECURE = True
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -36,16 +28,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp',
-
-
-    'corsheaders',
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
-
-
-
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -61,7 +46,7 @@ ROOT_URLCONF = 'verceldeploy.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,10 +61,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'verceldeploy.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -87,7 +70,7 @@ DATABASES = {
     }
 }
 
-
+# Uncomment and use the below block for PostgreSQL configuration if needed
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
@@ -99,26 +82,8 @@ DATABASES = {
 #     }
 # }
 
-
-
-
-
-# POSTGRES_LOCALLY = True
-
-# ENVIRONMENT = os.getenv('DJANGO_ENV', 'development')
-
-# if ENVIRONMENT == 'production' or POSTGRES_LOCALLY:
-#     database_url = os.getenv('DATABASE_URL', None)
-#     if database_url:
-#         DATABASES['default'] = dj_database_url.parse(database_url)
-#     else:
-#         raise ValueError("DATABASE_URL environment variable is not set or is empty.")
-
-
-
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -134,10 +99,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -146,24 +109,15 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 STATIC_URL = '/static/'
-
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
-
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
-
-
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 MEDIA_URL = '/media/'
-
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/dev/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
